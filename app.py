@@ -65,7 +65,8 @@ def send_whatsapp_message(contact, message):
     say("Message sent.")
 
 if __name__ == '__main__':
-     app.run(debug=True)
+    print("✅ Starting Flask app on 0.0.0.0:5000")
+    app.run(host='0.0.0.0', port=5000)
 
 
 
