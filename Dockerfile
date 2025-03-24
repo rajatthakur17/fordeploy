@@ -1,23 +1,27 @@
-# Use a lightweight official Python image
+# Use official Python image
 FROM python:3.11-slim
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Install system-level dependencies
-RUN apt-get update && \
-    apt-get install -y portaudio19-dev python3-dev gcc && \
-    apt-get clean
+# Install system dependencies required for PyAudio and others
+RUN apt-get update && apt-get install -y \
+    portaudio19-dev \
+    python3-dev \
+    build-essential \
+    libasound-dev \
+    libffi-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements.txt and install Python packages
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy all project files into the container
+# Copy all project files
 COPY . .
 
-# Expose port 5000 for Flask
+# Install Python dependencies
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# Expose Flask default port
 EXPOSE 5000
 
-# Command to run your Flask app (change if needed)
+# Run your app (adjust as needed)
 CMD ["python", "app.py"]
