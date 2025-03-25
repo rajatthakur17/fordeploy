@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Voice Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Voice Assistant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="/static/styles.css">
   <script src="/static/script.js" defer></script>
   <style>
@@ -10,11 +12,11 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: linear-gradient(to right, #2c3e50, #3498db);
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: #fff;
       min-height: 100vh;
       display: flex;
@@ -26,9 +28,10 @@
 
     nav {
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(255, 255, 255, 0.1);
       padding: 15px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
     }
 
     nav ul {
@@ -46,53 +49,68 @@
     }
 
     nav ul li a:hover {
-      color: #f1c40f;
+      color: #f39c12;
     }
 
     h2 {
       margin: 40px 0 20px;
-      font-size: 2rem;
+      font-size: 2.5rem;
       text-align: center;
     }
 
     button {
-      padding: 12px 25px;
-      font-size: 1rem;
-      background-color: #f1c40f;
-      color: #333;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background: #f39c12;
+      color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background-color 0.3s;
-      margin-bottom: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     button:hover {
-      background-color: #d4ac0d;
+      background: #e67e22;
+    }
+
+    button i {
+      font-size: 1.2rem;
     }
 
     #status, #command-status {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 20px;
+      text-align: center;
     }
 
     section {
       background-color: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 10px;
+      padding: 25px;
+      border-radius: 15px;
       width: 90%;
       max-width: 600px;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(15px);
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
     }
 
     footer {
       margin-top: auto;
       padding: 20px;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(255, 255, 255, 0.1);
       width: 100%;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
     }
 
     @media (max-width: 600px) {
@@ -111,13 +129,16 @@
   <nav>
     <ul>
       <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
   </nav>
 
-  <h2>🎤 Web Voice Assistant</h2>
-  <button onclick="startListening()">Start Voice Command</button>
+  <h2>🌟 AI Voice Assistant</h2>
+  <button onclick="startListening()">
+    <i class="fas fa-microphone"></i> Start Listening
+  </button>
   <p id="status">Waiting for command...</p>
 
   <section>
@@ -126,7 +147,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Voice Assistant. All rights reserved.</p>
+    <p>&copy; 2025 AI Voice Assistant. All rights reserved.</p>
   </footer>
 </body>
 </html>
