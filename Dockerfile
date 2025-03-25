@@ -1,5 +1,8 @@
 FROM python:3.11
 
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+
 # Install system dependencies for GUI automation and text-to-speech
 RUN apt-get update && apt-get install -y \
     portaudio19-dev \
@@ -20,9 +23,8 @@ WORKDIR /app
 # Copy application files to the container
 COPY . .
 
-# Install Python dependencies
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# Install Python dependencies efficiently
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Expose the Flask app port
 EXPOSE 5000
